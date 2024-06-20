@@ -1,0 +1,140 @@
+body {
+    font-family: 'Outfit', sans-serif; /* Para mudar a fonte, seguido com o nome da fonte e uma fonte reserva caso não carregue, como o alt do img */
+    background-image: url('../imagens/fundo-base.jpg');
+    background-repeat: no-repeat; /* Para não se repetir a imagem de fundo */
+    background-size: cover; /* Ajuste automático do background para a resolução da tela */
+    min-height: 100vh; /* Altura mínima do campo em 100% */
+}
+
+.cabecalho {
+    text-align: center; /* Alinhamento do texto ao centro */
+    padding: 60px 0; /* Espaçamento da caixa, podendo ser definida os 4 pontos cardeais */
+}
+
+.cabecalho h1 {
+    color: #f1ecff; /* Cor dos elementos h1 contidos na classe cabecalho */
+    font-size: 45px; /* Tamanho da fonte do texto */
+    letter-spacing: 10px; /* Espaçamento entre as letras */
+    text-transform: uppercase; /* Caixa alta para o texto selecionado */
+}
+
+.personagens-slider {
+    display: flex; /* Forma de visualização do elemento na tela */
+    justify-content: center; /* Alinhamento do elemento horizontalmente ao centro & Propriedade do Flex*/
+    align-items: center; /* Alinhamento do elemento verticalmente & CORREÇÃO DAS SETAS */
+    gap: 80px; /* Espaçamento entre os filhos da classe, nesse caso está sendo aplicada ao MAIN da página */
+}
+
+.lista-personagens {
+    width: 330px; /* Largura do elemento */
+    height: 520px; /* Altura do elemento */
+    position: relative; /* Os cartões vão usar como referência essa função, empilhando-se um após o outro. Com isso, conseguiremos aplicar o efeito de "passar o cartão" */
+}
+
+.btn-seta {
+    background-color: #ffffff;
+    width: 70px; /* Largura do elemento */
+    height: 70px; /* Altura do elemento */
+    border-radius: 50px; /* Refinar o raio do elemento deixando-o redondo */
+    border: 0; /* Remover as bordas do elemento, ou aplicar alguma configuração desejável */
+    cursor: pointer; /* Alterar as propriedades do cursor enquanto estivermos passando o mouse nele, geralmente para indicar que é um elemento selecionável */
+    display: flex; /* Referência acima */
+    justify-content: center; /* Referência acima */
+    align-items: center; /* Referência acima */
+    /* Os 3 parâmetros de alinhamento acima ajudam a responsividade para o celular */
+    transition: background-color 0.2s ease-in-out; /* Parâmetros para transição de cor, EASE-IN-OUT é o tipo da animação */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; /* Linha retirada do site: https://getcssscan.com/css-box-shadow-examples, pesquisar os parâmetros posteriormente */
+}
+
+.btn-seta.btn-voltar { /*Utilizado assim pois o botão tem as duas classes */
+    transform: rotateY(180deg); /* Rotaçao de 180 graus */
+    /* Anotar nos papéis a partir de aqui, precisei adiantar o conteúdo | transition no btn-seta | position: relative na .lista-personagens */
+
+
+
+}
+
+.btn-seta:hover /* O HOVER indica que quando passamos o mouse em cima, acontecerá algo com o BTN-SETA */ {
+    background-color: #8351fe;
+}
+
+.cartao {
+    opacity: 0; /* Capa de invisibilidade do Harry Potter, ele ainda continua no mesmo lugar */
+    height: 100%; /* Ocupar apenas o espaço destinado, sem vazar */
+    position: absolute; /* Propriedade do CSS - ESTUDAR */ /* O fluxo normal da página é alterado para colocar os elementos um em cima do outro */
+    padding: 12px; /* Explicação dada anteriormente */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; /* Linha retirada do site: https://getcssscan.com/css-box-shadow-examples, pesquisar os parâmetros posteriormente */
+    border-radius: 10px; /* Explicado dada anteriormente */
+    transition: opacity 0.3s ease-in-out; /* Transição com efeito de opacidade */
+    display: flex; /* Explicação dada anteriormente */
+    flex-direction: column; /* Explicação dada anteriormente */
+    justify-content: space-between; /* Space-between significa colocar o espaço entre os elementos, deixando centralizados verticalmente */
+}
+
+.cartao.selecionado /* O elemento tem as duas classes ao mesmo tempo */ {
+    opacity: 1; /* Visualização padrão */
+    z-index: 1; /* Eixo Z, colocando o elemento acima de todos | Permitindo o scrol do mouse no texto da descrição */
+}
+
+/* Acompanhar as referências das selecões para entender o que está sendo alterado */
+.cartao .imagem-personagem {
+    width: 100%; /* Para não vazar a largura */
+    max-height: 280px; /* Altura máxima definida como 280 pixels, para ajustar imagens com alturas diferentes das que estão neste projeto */
+}
+
+.cartao .nome {
+    background-color: rgba(179, 177, 185, 0.7); /* Combinação de 3 cores, famoso RGB. Alpha parametriza a opacidade */
+    padding: 8px 10px; /* Explicação dada anteriormente */
+    border-top-left-radius: 10px; /* Especificação de qual borda eu quero arredondar */
+    border-top-right-radius: 10px; /* Especificação de qual borda eu quero arredondar */
+    color: #ffffff; /* Explicação dada anteriormente */
+    font-size: 16px; /* Explicação dada anteriormente */
+    text-transform: uppercase; /* Explicação dada anteriormente */
+    letter-spacing: 3.5px; /* Explicação dada anteriormente */
+}
+
+.cartao .descricao {
+    background-color: rgba(255, 255, 255, 0.8); /* Explicação dada anteriormente */
+    border-bottom-left-radius: 10px; /* Explicação dada anteriormente */
+    border-bottom-right-radius: 10px; /* Explicação dada anteriormente */
+}
+
+.cartao .descricao .titulo {
+    background-color: #333333; /* Explicação dada anteriormente */
+    font-size: 20px; /* Explicação dada anteriormente */
+    color: #ffffff; /* Explicação dada anteriormente */
+    padding: 12px; /* Explicação dada anteriormente */
+}
+
+.cartao .descricao .texto {
+    font-size: 14px; /* Explicação dada anteriormente */
+    padding: 12px; /* Explicação dada anteriormente */
+    text-align: justify; /* JUSTIFY é a função do Word para Justificar o textp */
+    /* Correção do problema para não vazar o texto da descrição */
+    max-height: 100px; /* Explicação dada anteriormente */
+    overflow-y: auto; /* Ele não deixa vazar pelo eixo Y do elemento, daí coloca uma barra de rolagem por conta do overflow */
+}
+
+.cartao.fundo-1 {
+    background: url('../imagens/fundo-1.jpg') no-repeat; /* Duas propriedades presentes na linha 3 e 4 do CSS separadas por espaço */
+}
+
+.cartao.fundo-2 {
+    background: url('../imagens/fundo-2.jpg') no-repeat; /* Duas propriedades presentes na linha 3 e 4 do CSS separadas por espaço */
+}
+
+.cartao.fundo-3 {
+    background: url('../imagens/fundo-3.jpg') no-repeat; /* Duas propriedades presentes na linha 3 e 4 do CSS separadas por espaço */
+}
+
+.cartao.fundo-4 {
+    background: url('../imagens/fundo-4.jpg') no-repeat; /* Duas propriedades presentes na linha 3 e 4 do CSS separadas por espaço */
+}
+
+.cartao.fundo-5 {
+    background: url('../imagens/fundo-5.jpg') no-repeat; /* Duas propriedades presentes na linha 3 e 4 do CSS separadas por espaço */
+}
+
+.cartao.fundo-6 {
+    background: url('../imagens/fundo-6.jpg') no-repeat; /* Duas propriedades presentes na linha 3 e 4 do CSS separadas por espaço */
+}

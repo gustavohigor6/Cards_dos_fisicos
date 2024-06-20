@@ -1,0 +1,20 @@
+@media /* Media query informa que tudo o que estiver abaixo da especificação ao lado, será aplicado o código dentro das chaves */(max-width:620px){
+    .cabecalho {
+        padding: 30px 0; /* Referência e explicação no 'estilos.css' */
+    }
+
+    .personagens-slider {
+        padding: 0 15px; /* Referência e explicação no 'estilos.css' */
+        gap: 10px; /* Referência e explicação no 'estilos.css' */
+    }
+
+    .btn-seta {
+        width: 20px; /* Referência e explicação no 'estilos.css' */
+        height: 20px; /* Referência e explicação no 'estilos.css' */
+        padding: 20px; /* Referência e explicação no 'estilos.css' */
+    }
+
+    .lista-personagens {
+        height: 480px; /* Referência e explicação no 'estilos.css' */
+    }
+}

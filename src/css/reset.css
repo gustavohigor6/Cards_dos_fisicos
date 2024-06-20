@@ -1,0 +1,14 @@
+* {
+    margin: 0; /* Margem */
+    padding: 0; /* Espaçamento interno ao elemento*/
+    box-sizing: border-box; /* Nos ajuda a trabalhar de uma forma mais fácil com os espaçamentos no nosso projeto*/
+} 
+
+/*
+a {
+    Formatar as âncoras, hiperlinks
+} */
+
+ul {
+    list-style: none; /*Qualquer elemento de lista não pode ter nenhum estilo de lista, exemplo a bolinha marcando os níveis*/
+}
